@@ -1,0 +1,22 @@
+{
+  "od_pair_delay": {
+    "title": "Origin-Destination Pair Delay",
+    "description": "This feature describes the median delay from your selected origin to your selected destination during the hour prior to your scheduled departure, in minutes. Low values, between 0 to 15 minutes indicate normal operations between the airports. 15-60 minutes indicate moderately impaired operations. Values of 60 or greater indicate severely-disrupted operations and are associated with much higher rates of delay and cancellation."
+  },
+  "airport_out_delay": {
+    "title": "Origin Airport Delay",
+    "description": "This feature describes the median delay of all flights from your selected origin during the hour prior to your scheduled departure, in minutes. Unlike the Origin-Destination Pair Delay, it factors in all outgoing traffic from your origin airport. Thus, it can capture airport-wide problems that often don’t show up when looking at a single route, like runway closures due to severe weather. Low values, between 0 to 15 minutes indicate normal operations between the airports. 15-60 minutes indicate moderately impaired operations. Values of 60 or greater indicate severely-disrupted operations and are associated with much higher rates of delay and cancellation."
+  },
+  "od_cancel_ratio": {
+    "title": "Origin-Destination Cancellation Ratio",
+    "description": "This feature describes the ratio of cancelled flights from your selected origin to your selected destination during the hour prior to your scheduled departure. It often captures disruptions that prevent aircraft from transiting from the origin to the destination, such as severe thunderstorms along the route. A value of 0 indicates no flights were cancelled; a value of 1 indicates all were. High cancellation ratios generally indicate more severe issues than high delay values, as airlines typically only cancel flights as a last resort, in response to extremely severe weather or systemic disruptions."
+  },
+  "airport_cancel_ratio": {
+    "title": "Origin Airport Cancellation Ratio",
+    "description": "This feature describes the ratio of cancelled flights from your origin airport during the hour prior to your departure. Unlike the Origin-Destination Cancellation Ratio, it factors in all outgoing traffic from your origin airport. Thus, it can capture airport-wide problems that often don’t show up when looking at a single route, like runway closures due to severe weather. A value of 0 indicates no flights were cancelled; a value of 1 indicates all were. High cancellation ratios generally indicate more severe issues than high delay values, as airlines typically only cancel flights as a last resort, in response to extremely severe weather or systemic disruptions."
+  },
+  "missing_od_pair_delay": {
+    "title": "Missing Origin-Destination Pair Delay",
+    "description": "If true, this feature means the Origin-Destination Pair Delay was not available in the hour prior to your scheduled departure, but there were flights scheduled along the route. This usually means all the scheduled flights were cancelled, so we did not have any delay data to work with. If this happens, we estimate the Origin-Destination Pair Delay using the rest of our data, because our algorithm requires it to make a prediction. If false, the Origin-Destination Pair Delay was available, and we did not need to estimate it. True values are associated with a greater risk of flight cancellation."
+  }
+}

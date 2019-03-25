@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<hr>
+<div class="centered-text">
+	<h4 id="dateText">{{curr_time|format_date}}</h4>
+	<input type="text" class="date-picker" value="{{max_date|format_datepicker}}" data-date-end-date="{{max_date}}" data-date-start-date="{{min_date|get_startdate}}"><span class="add-on"><i class="icon-calendar" id="cal2"></i></span>
+</div>
+<div id="sliderDiv">
+	<input type="range" step="1" min="0" max="{{max_time}}" value="{{curr_time|get_hour}}" id="timeSlider"/>
+	<ul class="range-labels">
+		<li class="start">12 AM</li>
+		<li class="end" id="inputEnd">11 PM</li>
+	</ul>
+</div>
+<br>
+<hr>
+<div class="centered-text" style="width:50%;">
+	<h3>Select an Origin and Destination</h4>
+	<br>
+	<div class="float-left-input">
+		<h5>Origin</h5>
+		<h5 id="origin-airport-id">Select an airport from the map below:</h5>
+		<h5 id="origin-airport-loc"></h5>
+	</div>
+	<div class="float-right-input">
+		<h5>Destination</h5>
+		<h5 id="dest-airport-id">Select an airport from the map below:</h5>
+		<h5 id="dest-airport-loc"></h5>
+	</div>
+</div>
+<br>
+<br>
+<div id="map-container">
+	<div id="spinner-div"><div class="spinner"></div></div>
+	<div id="us-map-div"></div>
+</div>
+<br>
+<hr>
+<br>
+<div class="centered-text" id="model-results">
+	<h3>Model Results</h3>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+				<h5 id="origin-airport-res" style="z-index:99"></h5>
+				<br>
+				<img src="./static/img/cancel-arrow.svg" class="responsive-image"/>
+				<br>
+				<br>
+				<p id="cancel-text"></p>
+			</div>
+			<div class="col-md-8">
+				<br>
+				<div class="right-arrow" id="on-time-text"></div>
+				<div class="right-arrow" id="delay-text"></div>
+			</div>
+			<div class="col-md-2">
+				<h5 id="dest-airport-res"></h5>
+				<p id="reg-text">
+			</div>
+		</div>
+	</div>
+	<br>
+	<hr>
+	<br>
+	<div id="explainability-section">
+		<h3>Explanation of Results</h3>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6" id="classify-model-container">
+					<h4>Classification Model</h4>
+					<h5>Most important features predicting on-time, delay, or cancellation status</h5>
+					<div id="classify-graph"></div>
+				</div>
+				<div class="col-md-6" id="reg-model-container">
+					<h4>Regression Model</h4>
+					<h5>Most important features predicting the length of delay, if there is a delay</h5>
+					<div id="reg-graph"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
